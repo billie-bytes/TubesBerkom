@@ -23,13 +23,13 @@ daftar_golongan = {
 
 #Deklarasi semua lokasi gerbang
 lokasi_gate = {
-    "cileunyi":0,
-    "jatinangor":100,
-    "pamulihan":200,
-    "sumedang":300,
-    "cimalaka":400,
-    "paseh":500,
-    "cisumdawu":600
+    "cileunyi":156,
+    "jatinangor":161,
+    "pamulihan":166,
+    "sumedang":183,
+    "cimalaka":186,
+    "paseh":194,
+    "cisumdawu":211
 }
 
 def clearscreen(): #Untuk mengakhiri setiap sesi program agar command line tidak penuh text
