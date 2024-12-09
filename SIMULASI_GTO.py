@@ -1,3 +1,7 @@
+import tkinter
+
+
+
 #PROGRAM SIMULASI GERBANG TOL BERPIKIR KOMPUTASIONAL KELAS 30 KELOMPOK 9
 
 #KAMUS
@@ -12,6 +16,18 @@
 #endline: function(void) -> void
 
 #ALGORITMA
+
+#-----------------------------------------------TKINTER SCRIPT----------------------------------------------#
+window = tkinter.Tk()
+window.title("Simulasi Gate Tol")
+window.geometry("1280x720")
+current_loc = tkinter.Label(window, text="Current Location", bg="grey")
+current_loc2 = tkinter.Label(window, text="Current Location", bg="blue")
+current_loc.place(relx=0.1,rely=0.25,relwidth=0.2,relheight=0.5, anchor=tkinter.CENTER)
+current_loc2.place(relx=0.1,rely=0.75,relwidth=0.2,relheight=0.5, anchor=tkinter.CENTER)
+
+#-----------------------------------------------------------------------------------------------------------#
+
 #Deklarasi semua golongan dan harganya
 daftar_golongan = {
     "1":1000,
