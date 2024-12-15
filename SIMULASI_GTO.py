@@ -1,7 +1,5 @@
 import tkinter
 
-
-
 #PROGRAM SIMULASI GERBANG TOL BERPIKIR KOMPUTASIONAL KELAS 30 KELOMPOK 9
 
 #KAMUS
@@ -14,6 +12,7 @@ import tkinter
 #jarak: int
 #harga: int
 #endline: function(void) -> void
+#tkinter: module
 
 #ALGORITMA
 
@@ -21,11 +20,83 @@ import tkinter
 window = tkinter.Tk()
 window.title("Simulasi Gate Tol")
 window.geometry("1280x720")
-current_loc = tkinter.Label(window, text="Current Location", bg="grey")
-current_loc2 = tkinter.Label(window, text="Current Location", bg="blue")
-current_loc.place(relx=0.1,rely=0.25,relwidth=0.2,relheight=0.5, anchor=tkinter.CENTER)
-current_loc2.place(relx=0.1,rely=0.75,relwidth=0.2,relheight=0.5, anchor=tkinter.CENTER)
 
+frame_saldo = tkinter.Frame(window, bg="grey")
+frame_confirm = tkinter.Frame(window, bg="light blue")
+frame_saldo.place(relx=0.1,rely=0.25,relwidth=0.2,relheight=0.5, anchor=tkinter.CENTER)
+frame_confirm.place(relx=0.1,rely=0.75,relwidth=0.2,relheight=0.5, anchor=tkinter.CENTER)
+
+roadmap_frame = tkinter.Frame(window,bd=5, bg="dark grey" ) #Creates a frame for the map
+roadmap_frame.place(relx=0.6, rely=0.5, relwidth=0.8, relheight=1, anchor=tkinter.CENTER) #Places the map in the desired place
+
+roadmap_drawing = tkinter.Canvas(roadmap_frame, bg="light green") #Canvas for the map
+roadmap_drawing.place(relwidth=1,relheight=1) #Places the canvas on the frame
+roadmap_drawing.create_line(100,500, 150,420, 250,400, 350,340, 390,380, 450,320, 490,360, 590,330, 690,360, 740,200, 790,250, 890,290, 960,270, width=4) #Draws the line for the map
+
+#------buttons------#
+map_buttons = []
+button_color = "red"
+
+def delete_buttons(arr):
+    for button in arr:
+        button.destroy()
+    arr.clear()
+
+def pressed(lokasi, destination):
+    delete_buttons(map_buttons)
+    if(destination == False):
+        make_map_buttons(lokasi, button_color="green", destination=True)
+        return
+    elif(destination == True):
+        make_map_buttons("banyuwangi", button_color="red", destination=False)
+        return
+
+def make_map_buttons(lokasi="banyuwangi", button_color="red", destination=False):
+    if(lokasi!="cileunyi"):
+        b_cileunyi = tkinter.Button(roadmap_frame, text="Cileunyi", bg=button_color, command=lambda lokasi="cileunyi":pressed(lokasi, destination))
+        b_cileunyi.place(x=100,y=500, height=20, width=20)
+        map_buttons.append(b_cileunyi)    
+
+    if(lokasi!="jatinangor" and (lokasi=="cileunyi" or lokasi=="banyuwangi")):
+        b_jatinangor = tkinter.Button(roadmap_frame, text="Jatinangor", bg=button_color, command=lambda lokasi="jatinangor":pressed(lokasi, destination))
+        b_jatinangor.place(x=150,y=420, height=20, width=20)
+        map_buttons.append(b_jatinangor)
+
+    if(lokasi!="pamulihan"):
+        b_pamulihan = tkinter.Button(roadmap_frame, text="Pamulihan", bg=button_color, command=lambda lokasi="pamulihan":pressed(lokasi, destination))
+        b_pamulihan.place(x=250,y=400, height=20, width=20)
+        map_buttons.append(b_pamulihan)
+
+    if(lokasi!="sumedang"):
+        b_sumedang = tkinter.Button(roadmap_frame, text="Sumedang", bg=button_color, command=lambda lokasi="sumedang":pressed(lokasi, destination))
+        b_sumedang.place(x=490,y=360, height=20, width=20)
+        map_buttons.append(b_sumedang)   
+
+    if(lokasi!="cimalaka"):
+        b_cimalaka = tkinter.Button(roadmap_frame, text="Cimalaka", bg=button_color, command=lambda lokasi="cimalaka":pressed(lokasi, destination))
+        b_cimalaka.place(x=590,y=330, height=20, width=20)
+        map_buttons.append(b_cimalaka)
+
+    if(lokasi!="paseh"):
+        b_paseh = tkinter.Button(roadmap_frame, text="Paseh", bg=button_color, command=lambda lokasi="paseh":pressed(lokasi, destination))
+        b_paseh.place(x=690,y=360, height=20, width=20)
+        map_buttons.append(b_paseh)
+
+    if(lokasi!="cisumdawu jaya"):
+        b_cisumdawujaya = tkinter.Button(roadmap_frame, text="Cisumdawu Jaya", bg=button_color, command=lambda lokasi="cisumdawu jaya":pressed(lokasi, destination))
+        b_cisumdawujaya.place(x=890,y=290, height=20, width=20)
+        map_buttons.append(b_cisumdawujaya)
+
+    if(lokasi!="cisumdawu utama"):
+        b_cisumdawuutama = tkinter.Button(roadmap_frame, text="Cisumdawu Utama", bg=button_color, command=lambda lokasi="cisumdawu utama":pressed(lokasi, destination))
+        b_cisumdawuutama.place(x=960,y=270, height=20, width=20)
+        map_buttons.append(b_cisumdawuutama)    
+    return
+
+make_map_buttons()
+#------buttons------#
+
+window.mainloop()
 #-----------------------------------------------------------------------------------------------------------#
 
 #Deklarasi semua golongan dan harganya
