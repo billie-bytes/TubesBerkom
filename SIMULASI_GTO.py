@@ -35,14 +35,13 @@ roadmap_drawing.create_line(100,500, 150,420, 250,400, 350,340, 390,380, 450,320
 
 #------buttons------#
 map_buttons = []
-button_color = "red"
 
 def delete_buttons(arr):
     for button in arr:
         button.destroy()
     arr.clear()
 
-def pressed(lokasi, destination):
+def pressed(lokasi, destination, km):
     delete_buttons(map_buttons)
     if(destination == False):
         make_map_buttons(lokasi, button_color="green", destination=True)
@@ -53,42 +52,42 @@ def pressed(lokasi, destination):
 
 def make_map_buttons(lokasi="banyuwangi", button_color="red", destination=False):
     if(lokasi!="cileunyi"):
-        b_cileunyi = tkinter.Button(roadmap_frame, text="Cileunyi", bg=button_color, command=lambda lokasi="cileunyi":pressed(lokasi, destination))
+        b_cileunyi = tkinter.Button(roadmap_frame, text="Cileunyi", bg=button_color, command=lambda lokasi="cileunyi":pressed(lokasi, destination, 156))
         b_cileunyi.place(x=100,y=500, height=20, width=20)
         map_buttons.append(b_cileunyi)    
 
     if(lokasi!="jatinangor" and (lokasi=="cileunyi" or lokasi=="banyuwangi")):
-        b_jatinangor = tkinter.Button(roadmap_frame, text="Jatinangor", bg=button_color, command=lambda lokasi="jatinangor":pressed(lokasi, destination))
+        b_jatinangor = tkinter.Button(roadmap_frame, text="Jatinangor", bg=button_color, command=lambda lokasi="jatinangor":pressed(lokasi, destination, 161))
         b_jatinangor.place(x=150,y=420, height=20, width=20)
         map_buttons.append(b_jatinangor)
 
     if(lokasi!="pamulihan"):
-        b_pamulihan = tkinter.Button(roadmap_frame, text="Pamulihan", bg=button_color, command=lambda lokasi="pamulihan":pressed(lokasi, destination))
+        b_pamulihan = tkinter.Button(roadmap_frame, text="Pamulihan", bg=button_color, command=lambda lokasi="pamulihan":pressed(lokasi, destination, 166))
         b_pamulihan.place(x=250,y=400, height=20, width=20)
         map_buttons.append(b_pamulihan)
 
     if(lokasi!="sumedang"):
-        b_sumedang = tkinter.Button(roadmap_frame, text="Sumedang", bg=button_color, command=lambda lokasi="sumedang":pressed(lokasi, destination))
+        b_sumedang = tkinter.Button(roadmap_frame, text="Sumedang", bg=button_color, command=lambda lokasi="sumedang":pressed(lokasi, destination, 183))
         b_sumedang.place(x=490,y=360, height=20, width=20)
         map_buttons.append(b_sumedang)   
 
     if(lokasi!="cimalaka"):
-        b_cimalaka = tkinter.Button(roadmap_frame, text="Cimalaka", bg=button_color, command=lambda lokasi="cimalaka":pressed(lokasi, destination))
+        b_cimalaka = tkinter.Button(roadmap_frame, text="Cimalaka", bg=button_color, command=lambda lokasi="cimalaka":pressed(lokasi, destination, 186))
         b_cimalaka.place(x=590,y=330, height=20, width=20)
         map_buttons.append(b_cimalaka)
 
     if(lokasi!="paseh"):
-        b_paseh = tkinter.Button(roadmap_frame, text="Paseh", bg=button_color, command=lambda lokasi="paseh":pressed(lokasi, destination))
+        b_paseh = tkinter.Button(roadmap_frame, text="Paseh", bg=button_color, command=lambda lokasi="paseh":pressed(lokasi, destination, 194))
         b_paseh.place(x=690,y=360, height=20, width=20)
         map_buttons.append(b_paseh)
 
     if(lokasi!="cisumdawu jaya"):
-        b_cisumdawujaya = tkinter.Button(roadmap_frame, text="Cisumdawu Jaya", bg=button_color, command=lambda lokasi="cisumdawu jaya":pressed(lokasi, destination))
+        b_cisumdawujaya = tkinter.Button(roadmap_frame, text="Cisumdawu Jaya", bg=button_color, command=lambda lokasi="cisumdawu jaya":pressed(lokasi, destination, 211))
         b_cisumdawujaya.place(x=890,y=290, height=20, width=20)
         map_buttons.append(b_cisumdawujaya)
 
     if(lokasi!="cisumdawu utama"):
-        b_cisumdawuutama = tkinter.Button(roadmap_frame, text="Cisumdawu Utama", bg=button_color, command=lambda lokasi="cisumdawu utama":pressed(lokasi, destination))
+        b_cisumdawuutama = tkinter.Button(roadmap_frame, text="Cisumdawu Utama", bg=button_color, command=lambda lokasi="cisumdawu utama":pressed(lokasi, destination, 214))
         b_cisumdawuutama.place(x=960,y=270, height=20, width=20)
         map_buttons.append(b_cisumdawuutama)    
     return
